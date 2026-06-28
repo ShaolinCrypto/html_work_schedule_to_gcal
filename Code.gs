@@ -15,24 +15,42 @@
  *    - Matches: subject contains "Week Starting"
  *    - Action: apply label "Work Schedule Import"
  *
- * 4. Authorise the script:
+ * 4. Add the Gmail API service (required for schedule image maps):
+ *    GmailApp.getBody() strips <map>/<area> tags from schedule emails. The script
+ *    reads the raw text/html MIME part via the Advanced Gmail service instead.
+ *
+ *    In the Apps Script editor:
+ *    a. Click "Services" in the left sidebar (or the "+" next to Services).
+ *    b. Select "Gmail API" from the list (Google identifier: Gmail).
+ *    c. Leave the identifier as "Gmail" and version as "v1", then click Add.
+ *
+ *    If Google Cloud asks you to enable the API:
+ *    a. Click the link to open the linked Cloud project.
+ *    b. Enable "Gmail API" for that project.
+ *    c. Return to Apps Script and confirm "Gmail" appears under Services.
+ *
+ *    After setup, a successful import log should show:
+ *      HTML source: Gmail API raw MIME | ... | ImageMap1 present=true
+ *    If you see "Advanced Gmail service not enabled", repeat this step.
+ *
+ * 5. Authorise the script:
  *    Run importLatestWorkSchedule() once from the editor (Run ▶).
  *    Accept Calendar + Gmail permissions when prompted.
  *
- * 5. Test parsing without Gmail:
+ * 6. Test parsing without Gmail:
  *    Run testParseWorkScheduleHtml() — sample HTML for week 29/06/2026 is pre-loaded.
  *    To test other weeks, replace TEST_HTML / TEST_SUBJECT or call
  *    testParseWorkScheduleHtml(htmlString, subject). See test-fixture.html in repo.
  *
- * 6. Test safely with real email:
+ * 7. Test safely with real email:
  *    Set DRY_RUN = true (default below), run importLatestWorkSchedule(), check Logs
  *    (View → Executions or Ctrl+Enter after run).
  *
- * 7. Go live:
+ * 8. Go live:
  *    Set DRY_RUN = false, run importLatestWorkSchedule() again, verify "Work Rota"
  *    calendar events, then run createHourlyTrigger() once to schedule hourly imports.
  *
- * 8. To remove the hourly trigger later:
+ * 9. To remove the hourly trigger later:
  *    Triggers (clock icon) → delete the "importLatestWorkSchedule" trigger.
  *
  * CONFIGURATION
@@ -264,7 +282,7 @@ function processScheduleMessage_(message) {
   const events = processScheduleContent_(
     subject,
     message.getPlainBody(),
-    message.getBody(),
+    getMessageHtmlBody_(message),
     { testMode: false, subject: subject, message: message }
   );
 
@@ -392,6 +410,146 @@ function applyImportedLabel_(message) {
   const label = GmailApp.getUserLabelByName(LABEL_IMPORTED) || GmailApp.createLabel(LABEL_IMPORTED);
   message.getThread().addLabel(label);
   Logger.log('Applied Gmail label "%s".', LABEL_IMPORTED);
+}
+
+/**
+ * Best-effort HTML body for schedule parsing.
+ * GmailApp.getBody() often strips <map>/<area>; raw MIME usually preserves them.
+ *
+ * @param {GoogleAppsScript.Gmail.GmailMessage} message
+ * @returns {string}
+ */
+function getMessageHtmlBody_(message) {
+  const messageId = message.getId();
+  let html = '';
+  let source = 'none';
+
+  const rawHtml = getRawHtmlBodyViaGmailApi_(messageId);
+  if (rawHtml && htmlContainsScheduleMaps_(rawHtml)) {
+    html = rawHtml;
+    source = 'Gmail API raw MIME';
+  }
+
+  if (!html) {
+    const bodyHtml = message.getBody() || '';
+    if (htmlContainsScheduleMaps_(bodyHtml)) {
+      html = bodyHtml;
+      source = 'GmailApp.getBody()';
+    } else if (rawHtml) {
+      html = rawHtml;
+      source = 'Gmail API raw MIME (no maps detected in getBody)';
+    } else {
+      html = bodyHtml;
+      source = 'GmailApp.getBody()';
+    }
+  }
+
+  html = prepareHtmlForParsing_(html);
+  Logger.log(
+    'HTML source: %s | length=%s | ImageMap1 present=%s',
+    source,
+    html.length,
+    html.indexOf('ImageMap1') !== -1
+  );
+
+  if (!htmlContainsScheduleMaps_(html)) {
+    Logger.log(
+      'WARNING: No ImageMap markers in HTML. Schedule tables may have been stripped by Gmail.'
+    );
+    Logger.log('HTML preview: %s', html.substring(0, 400).replace(/\s+/g, ' '));
+  }
+
+  return html;
+}
+
+/**
+ * @param {string} html
+ * @returns {boolean}
+ */
+function htmlContainsScheduleMaps_(html) {
+  return /ImageMap[1-7]/i.test(html || '');
+}
+
+/**
+ * Decode structural HTML entities so tag patterns can match email source HTML.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+function prepareHtmlForParsing_(html) {
+  if (!html) {
+    return '';
+  }
+
+  let normalized = html.replace(/\uFEFF/g, '');
+
+  if (/&lt;(?:map|area|div)\b/i.test(normalized)) {
+    normalized = normalized
+      .replace(/&lt;/gi, '<')
+      .replace(/&gt;/gi, '>')
+      .replace(/&quot;/gi, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/&apos;/gi, "'")
+      .replace(/&nbsp;/gi, ' ')
+      .replace(/&#160;/g, ' ')
+      .replace(/&amp;/gi, '&');
+  }
+
+  return normalized;
+}
+
+/**
+ * Read text/html from the raw Gmail MIME payload (requires Advanced Gmail service).
+ *
+ * @param {string} messageId
+ * @returns {string}
+ */
+function getRawHtmlBodyViaGmailApi_(messageId) {
+  if (typeof Gmail === 'undefined' || !Gmail.Users) {
+    Logger.log('Advanced Gmail service not enabled — using GmailApp.getBody() only.');
+    return '';
+  }
+
+  try {
+    const message = Gmail.Users.Messages.get('me', messageId, { format: 'full' });
+    return extractHtmlFromMimePart_(message.payload) || '';
+  } catch (err) {
+    Logger.log('Failed to read raw MIME HTML: %s', err);
+    return '';
+  }
+}
+
+/**
+ * @param {GoogleAppsScript.Gmail.GmailV1.Schema.MessagePart|null|undefined} part
+ * @returns {string}
+ */
+function extractHtmlFromMimePart_(part) {
+  if (!part) {
+    return '';
+  }
+
+  if (part.mimeType === 'text/html' && part.body && part.body.data) {
+    return decodeGmailBase64_(part.body.data);
+  }
+
+  if (part.parts) {
+    for (var i = 0; i < part.parts.length; i++) {
+      const html = extractHtmlFromMimePart_(part.parts[i]);
+      if (html) {
+        return html;
+      }
+    }
+  }
+
+  return '';
+}
+
+/**
+ * @param {string} encoded
+ * @returns {string}
+ */
+function decodeGmailBase64_(encoded) {
+  return Utilities.newBlob(Utilities.base64DecodeWebSafe(encoded)).getDataAsString('UTF-8');
 }
 
 // ---------------------------------------------------------------------------
@@ -643,39 +801,91 @@ function decodeHtmlEntities_(text) {
  * @returns {string[][]} titles per day index 0–6
  */
 function parseImageMaps_(html) {
+  html = prepareHtmlForParsing_(html);
+
   const results = IMAGE_MAP_NAMES.map(function () {
     return [];
   });
 
   IMAGE_MAP_NAMES.forEach(function (mapName, dayIndex) {
-    const mapRegex = new RegExp(
-      '<map\\b[^>]*\\bname=["\']?' + mapName + '["\']?[^>]*>([\\s\\S]*?)<\\/map>',
-      'i'
-    );
-    const mapMatch = html.match(mapRegex);
+    const mapInner = extractMapInnerHtml_(html, mapName);
 
-    if (!mapMatch) {
+    if (!mapInner) {
       Logger.log('Map %s (%s): not found in HTML.', mapName, DAY_NAMES[dayIndex]);
       return;
     }
 
-    const mapInner = mapMatch[1];
-    const areaRegex = /<area\b[^>]*\btitle=["']([^"']*)["'][^>]*>/gi;
-    let areaMatch;
-    let count = 0;
+    const titles = extractTitlesFromMapInner_(mapInner);
+    results[dayIndex] = titles;
 
-    while ((areaMatch = areaRegex.exec(mapInner)) !== null) {
-      const title = decodeHtmlEntities_(areaMatch[1]);
-      if (title) {
-        results[dayIndex].push(title);
-        count++;
-      }
-    }
-
-    Logger.log('Map %s (%s): found %s area title(s).', mapName, DAY_NAMES[dayIndex], count);
+    Logger.log('Map %s (%s): found %s area title(s).', mapName, DAY_NAMES[dayIndex], titles.length);
   });
 
   return results;
+}
+
+/**
+ * Extract inner HTML of a named schedule map (macro-compatible patterns first).
+ *
+ * @param {string} html
+ * @param {string} mapName
+ * @returns {string|null}
+ */
+function extractMapInnerHtml_(html, mapName) {
+  const patterns = [
+    new RegExp('(?<=<map name="' + mapName + '" id="' + mapName + '">)[\\s\\S]+?(?=</map>)', 'i'),
+    new RegExp('(?<=<map id="' + mapName + '" name="' + mapName + '">)[\\s\\S]+?(?=</map>)', 'i'),
+    new RegExp('<map\\b[^>]*\\bname=["\']?' + mapName + '["\']?[^>]*>([\\s\\S]*?)<\\/map>', 'i'),
+    new RegExp('<map\\b[^>]*\\bid=["\']?' + mapName + '["\']?[^>]*>([\\s\\S]*?)<\\/map>', 'i'),
+  ];
+
+  for (var i = 0; i < patterns.length; i++) {
+    const match = html.match(patterns[i]);
+    if (match) {
+      return match[1] || match[0];
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Extract title strings from inside a map block (area tags, then macro-style fallback).
+ *
+ * @param {string} mapInner
+ * @returns {string[]}
+ */
+function extractTitlesFromMapInner_(mapInner) {
+  const titles = [];
+  const seen = {};
+
+  const areaRegex = /<area\b[^>]*\btitle\s*=\s*["']([^"']*)["'][^>]*>/gi;
+  let areaMatch;
+
+  while ((areaMatch = areaRegex.exec(mapInner)) !== null) {
+    const title = decodeHtmlEntities_(areaMatch[1]);
+    if (title && !seen[title]) {
+      seen[title] = true;
+      titles.push(title);
+    }
+  }
+
+  if (titles.length > 0) {
+    return titles;
+  }
+
+  const macroTitleRegex = /(?<=title=")(.+?)(?=")/gi;
+  let macroMatch;
+
+  while ((macroMatch = macroTitleRegex.exec(mapInner)) !== null) {
+    const title = decodeHtmlEntities_(macroMatch[1]);
+    if (title && !seen[title]) {
+      seen[title] = true;
+      titles.push(title);
+    }
+  }
+
+  return titles;
 }
 
 /**
