@@ -307,7 +307,7 @@ function processScheduleContent_(subject, plainBody, htmlBody, options) {
   const weekStart = extractWeekStartDate_(subject, plainBody);
   if (!weekStart) {
     Logger.log(
-      'Could not extract week start date from subject or body (expected "Week Starting DD/MM/YYYY"). Skipping.'
+      'Could not extract week start date from subject or body (expected "Week Starting DD/MM" or "Week Starting DD/MM/YYYY"). Skipping.'
     );
     return null;
   }
@@ -399,7 +399,8 @@ function applyImportedLabel_(message) {
 // ---------------------------------------------------------------------------
 
 /**
- * Extract week start (Monday) from subject or plain body, e.g. "Week Starting 29/06/2026".
+ * Extract week start (Monday) from subject or plain body.
+ * Accepts "Week Starting DD/MM/YYYY" or "Week Starting DD/MM" (year inferred).
  *
  * @param {string} subject
  * @param {string} plainBody
@@ -407,10 +408,11 @@ function applyImportedLabel_(message) {
  */
 function extractWeekStartDate_(subject, plainBody) {
   const sources = [subject || '', plainBody || ''];
+  const datePattern = /Week\s+Starting\s+(\d{1,2})\/(\d{1,2})(?:\/(\d{4}))?/i;
   let match = null;
 
   for (var i = 0; i < sources.length; i++) {
-    match = sources[i].match(/Week\s+Starting\s+(\d{1,2})\/(\d{1,2})\/(\d{4})/i);
+    match = sources[i].match(datePattern);
     if (match) {
       break;
     }
@@ -422,14 +424,94 @@ function extractWeekStartDate_(subject, plainBody) {
 
   const day = parseInt(match[1], 10);
   const month = parseInt(match[2], 10);
-  const year = parseInt(match[3], 10);
+  const explicitYear = match[3] ? parseInt(match[3], 10) : null;
 
+  if (explicitYear) {
+    return buildWeekStartDate_(day, month, explicitYear);
+  }
+
+  return inferWeekStartDateFromDayMonth_(day, month);
+}
+
+/**
+ * @param {number} day
+ * @param {number} month
+ * @param {number} year
+ * @returns {Date|null}
+ */
+function buildWeekStartDate_(day, month, year) {
   if (!isValidCalendarDate_(year, month, day)) {
     Logger.log('Invalid calendar date: %s/%s/%s', day, month, year);
     return null;
   }
 
   return londonDate_(year, month, day, 0, 0);
+}
+
+/**
+ * Infer DD/MM year from today in Europe/London — pick closest date among
+ * previous, current, and next calendar year (checking backwards and forwards).
+ *
+ * @param {number} day
+ * @param {number} month
+ * @returns {Date|null}
+ */
+function inferWeekStartDateFromDayMonth_(day, month) {
+  const today = getTodayLondon_();
+  const todayYear = parseInt(Utilities.formatDate(today, TIMEZONE, 'yyyy'), 10);
+  let bestDate = null;
+  let bestDiff = null;
+  let bestYear = null;
+
+  for (var year = todayYear - 1; year <= todayYear + 1; year++) {
+    if (!isValidCalendarDate_(year, month, day)) {
+      continue;
+    }
+
+    const candidate = londonDate_(year, month, day, 0, 0);
+    const diff = Math.abs(candidate.getTime() - today.getTime());
+
+    if (
+      bestDiff === null ||
+      diff < bestDiff ||
+      (diff === bestDiff && year > bestYear)
+    ) {
+      bestDiff = diff;
+      bestYear = year;
+      bestDate = candidate;
+    }
+  }
+
+  if (!bestDate) {
+    Logger.log('Could not infer a valid year for %s/%s.', day, month);
+    return null;
+  }
+
+  Logger.log(
+    'Inferred week start %s for %s/%s (closest to today %s).',
+    formatDateOnly_(bestDate),
+    pad2_(day),
+    pad2_(month),
+    formatDateOnly_(today)
+  );
+
+  return bestDate;
+}
+
+/**
+ * Today at 00:00 in Europe/London.
+ *
+ * @returns {Date}
+ */
+function getTodayLondon_() {
+  const parts = Utilities.formatDate(new Date(), TIMEZONE, 'yyyy-MM-dd').split('-');
+  return londonDate_(
+    parseInt(parts[0], 10),
+    parseInt(parts[1], 10),
+    parseInt(parts[2], 10),
+    0,
+    0
+  );
 }
 
 /**
