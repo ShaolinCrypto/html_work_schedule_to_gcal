@@ -47,11 +47,31 @@
  *    (View → Executions or Ctrl+Enter after run).
  *
  * 8. Go live:
- *    Set DRY_RUN = false, run importLatestWorkSchedule() again, verify "Work Rota"
- *    calendar events, then run createHourlyTrigger() once to schedule hourly imports.
+ *    Set DRY_RUN = false, run importLatestWorkSchedule() again, and verify "Work Rota"
+ *    calendar events look correct.
  *
- * 9. To remove the hourly trigger later:
- *    Triggers (clock icon) → delete the "importLatestWorkSchedule" trigger.
+ * 9. Schedule hourly imports (choose one method):
+ *
+ *    Option A — run once from the editor:
+ *    Run createHourlyTrigger() once. It creates an hourly trigger for
+ *    importLatestWorkSchedule() and skips if one already exists.
+ *
+ *    Option B — create the trigger manually (Triggers tab → Add Trigger):
+ *      Function:              importLatestWorkSchedule
+ *      Deployment:            Head
+ *      Event source:          Time-driven
+ *      Type:                  Hour timer
+ *      Hour interval:         Every hour
+ *      Failure notifications: Notify me hourly (or daily, your preference)
+ *
+ *    Do NOT schedule createHourlyTrigger — that only sets up the trigger once.
+ *    The function that imports your schedule every hour is importLatestWorkSchedule.
+ *
+ *    No "Deploy → New deployment" is required for personal use; Head is correct
+ *    for time-driven triggers on your own account.
+ *
+ * 10. To remove the hourly trigger later:
+ *    Triggers (clock icon) → delete the importLatestWorkSchedule trigger.
  *
  * CONFIGURATION
  * -------------
