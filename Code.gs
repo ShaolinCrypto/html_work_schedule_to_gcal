@@ -15,9 +15,10 @@
  *    - Matches: subject contains "Week Starting"
  *    - Action: apply label "Work Schedule Import"
  *
- * 4. Add the Gmail API service (required for schedule image maps):
- *    GmailApp.getBody() strips <map>/<area> tags from schedule emails. The script
- *    reads the raw text/html MIME part via the Advanced Gmail service instead.
+ * 4. Add the Gmail API service (required for schedule HTML):
+ *    GmailApp.getBody() often strips schedule markup (image maps or Kendo scheduler
+ *    accessibility spans). The script reads the raw text/html MIME part via the
+ *    Advanced Gmail service instead.
  *
  *    In the Apps Script editor:
  *    a. Click "Services" in the left sidebar (or the "+" next to Services).
@@ -30,7 +31,7 @@
  *    c. Return to Apps Script and confirm "Gmail" appears under Services.
  *
  *    After setup, a successful import log should show:
- *      HTML source: Gmail API raw MIME | ... | ImageMap1 present=true
+ *      HTML source: Gmail API raw MIME | ... | scheduler=true
  *    If you see "Advanced Gmail service not enabled", repeat this step.
  *
  * 5. Authorise the script:
@@ -38,9 +39,10 @@
  *    Accept Calendar + Gmail permissions when prompted.
  *
  * 6. Test parsing without Gmail:
- *    Run testParseWorkScheduleHtml() — sample HTML for week 29/06/2026 is pre-loaded.
- *    To test other weeks, replace TEST_HTML / TEST_SUBJECT or call
- *    testParseWorkScheduleHtml(htmlString, subject). See test-fixture.html in repo.
+ *    Run testParseWorkScheduleHtml() — Kendo scheduler sample for week 29/06/2026 is
+ *    pre-loaded. For a full email body use test-fixture-scheduler.html in repo, or call
+ *    testParseWorkScheduleHtml(htmlString, subject). Legacy ImageMap HTML still works
+ *    (see test-fixture.html).
  *
  * 7. Test safely with real email:
  *    Set DRY_RUN = true (default below), run importLatestWorkSchedule(), check Logs
@@ -136,63 +138,46 @@ const DAY_NAMES = [
 // Test fixtures — paste your real email HTML here for offline parsing tests
 // ---------------------------------------------------------------------------
 
-/** Subject line containing "Week Starting DD/MM/YYYY". */
-const TEST_SUBJECT = 'Week Starting 29/06/2026';
+/** Subject line containing "Week Starting DD/MM" or "Week Starting DD/MM/YYYY". */
+const TEST_SUBJECT = 'Week Starting 29/06';
 
 /** Optional plain-text body fallback for date extraction (usually leave empty). */
 const TEST_PLAIN_BODY = '';
 
 /**
- * Sample schedule HTML for offline tests (maps only — see test-fixture.html in repo).
- * Replace with your full email HTML if needed; base64 images are not required for parsing.
+ * Sample Kendo scheduler HTML for offline tests (see test-fixture-scheduler.html for full email).
+ * Legacy ImageMap sample is in test-fixture.html.
  */
 const TEST_HTML = `
-<div id="divResults">
-<map name="ImageMap1" id="ImageMap1">
-  <area shape="rect" coords="410,50,417,86" title="06:15 PM - 06:25 PM PBRK3 " alt="06:15 PM - 06:25 PM PBRK3 ">
-  <area shape="rect" coords="319,50,330,86" title="04:00 PM - 04:15 PM PBRK2 " alt="04:00 PM - 04:15 PM PBRK2 ">
-  <area shape="rect" coords="218,50,239,86" title="01:30 PM - 02:00 PM LUNCH " alt="01:30 PM - 02:00 PM LUNCH ">
-  <area shape="rect" coords="137,50,148,86" title="11:30 AM - 11:45 AM PBRK1 " alt="11:30 AM - 11:45 AM PBRK1 ">
-  <area shape="rect" coords="57,41,481,77" title="09:30 AM - 08:00 PM HOLS Holiday day id [7305888] and hol detail id [161825] (awr ID [132714921])" alt="09:30 AM - 08:00 PM HOLS Holiday day id [7305888] and hol detail id [161825] (awr ID [132714921])">
-  <area shape="rect" coords="57,31,481,68" title="09:30 AM - 08:00 PM TFLEOPS " alt="09:30 AM - 08:00 PM TFLEOPS ">
-  <area shape="rect" coords="57,22,481,59" title="09:30 AM - 08:00 PM SHIFT " alt="09:30 AM - 08:00 PM SHIFT ">
-</map>
-<map name="ImageMap2" id="ImageMap2">
-  <area shape="rect" coords="416,40,429,74" title="06:15 PM - 06:30 PM PBRK2 " alt="06:15 PM - 06:30 PM PBRK2 ">
-  <area shape="rect" coords="273,40,299,74" title="03:30 PM - 04:00 PM LUNCH " alt="03:30 PM - 04:00 PM LUNCH ">
-  <area shape="rect" coords="156,40,169,74" title="01:15 PM - 01:30 PM PBRK1 " alt="01:15 PM - 01:30 PM PBRK1 ">
-  <area shape="rect" coords="117,40,156,74" title="12:30 PM - 01:15 PM COACH TM COACHING" alt="12:30 PM - 01:15 PM COACH TM COACHING">
-  <area shape="rect" coords="91,31,507,66" title="12:00 PM - 08:00 PM TFLEOPS " alt="12:00 PM - 08:00 PM TFLEOPS ">
-  <area shape="rect" coords="91,22,507,57" title="12:00 PM - 08:00 PM SHIFT " alt="12:00 PM - 08:00 PM SHIFT ">
-</map>
-<map name="ImageMap3" id="ImageMap3">
-  <area shape="rect" coords="442,40,455,74" title="06:45 PM - 07:00 PM PBRK2 " alt="06:45 PM - 07:00 PM PBRK2 ">
-  <area shape="rect" coords="286,40,312,74" title="03:45 PM - 04:15 PM LUNCH " alt="03:45 PM - 04:15 PM LUNCH ">
-  <area shape="rect" coords="169,40,182,74" title="01:30 PM - 01:45 PM PBRK1 " alt="01:30 PM - 01:45 PM PBRK1 ">
-  <area shape="rect" coords="91,31,507,66" title="12:00 PM - 08:00 PM TFLEOPS " alt="12:00 PM - 08:00 PM TFLEOPS ">
-  <area shape="rect" coords="91,22,507,57" title="12:00 PM - 08:00 PM SHIFT " alt="12:00 PM - 08:00 PM SHIFT ">
-</map>
-<map name="ImageMap4" id="ImageMap4">
-  <area shape="rect" coords="433,40,446,74" title="06:35 PM - 06:50 PM PBRK2 " alt="06:35 PM - 06:50 PM PBRK2 ">
-  <area shape="rect" coords="273,40,299,74" title="03:30 PM - 04:00 PM LUNCH " alt="03:30 PM - 04:00 PM LUNCH ">
-  <area shape="rect" coords="208,40,221,74" title="02:15 PM - 02:30 PM MEETT SPARK" alt="02:15 PM - 02:30 PM MEETT SPARK">
-  <area shape="rect" coords="156,40,169,74" title="01:15 PM - 01:30 PM PBRK1 " alt="01:15 PM - 01:30 PM PBRK1 ">
-  <area shape="rect" coords="91,31,507,66" title="12:00 PM - 08:00 PM TFLEOPS " alt="12:00 PM - 08:00 PM TFLEOPS ">
-  <area shape="rect" coords="91,22,507,57" title="12:00 PM - 08:00 PM SHIFT " alt="12:00 PM - 08:00 PM SHIFT ">
-</map>
-<map name="ImageMap5" id="ImageMap5">
-  <area shape="rect" coords="442,40,455,74" title="06:45 PM - 07:00 PM PBRK2 " alt="06:45 PM - 07:00 PM PBRK2 ">
-  <area shape="rect" coords="291,40,317,74" title="03:50 PM - 04:20 PM LUNCH " alt="03:50 PM - 04:20 PM LUNCH ">
-  <area shape="rect" coords="156,40,169,74" title="01:15 PM - 01:30 PM PBRK1 " alt="01:15 PM - 01:30 PM PBRK1 ">
-  <area shape="rect" coords="91,31,507,66" title="12:00 PM - 08:00 PM TFLEOPS " alt="12:00 PM - 08:00 PM TFLEOPS ">
-  <area shape="rect" coords="91,22,507,57" title="12:00 PM - 08:00 PM SHIFT " alt="12:00 PM - 08:00 PM SHIFT ">
-</map>
-<map name="ImageMap6" id="ImageMap6">
-  <area shape="rect" coords="91,44,507,88" title="No data to display" alt="No data to display">
-</map>
-<map name="ImageMap7" id="ImageMap7">
-  <area shape="rect" coords="91,44,507,88" title="No data to display" alt="No data to display">
-</map>
+<div id="seScheduler">
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Holiday All Day. Memo. Holiday day id [7305889] and hol detail id [161826] (awr ID [132714923]). </span>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Transport for London Enforceme From 9:30 AM To 8:00 PM. </span>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Shift (container) From 9:30 AM To 8:00 PM. </span>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Paid Break 1 From 11:30 AM To 11:45 AM. </span>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Lunch From 1:30 PM To 2:00 PM. </span>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Paid Break 2 From 4:00 PM To 4:15 PM. </span>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Paid Break 3 From 6:15 PM To 6:25 PM. </span>
+<span class="accessibility-screen-reader"> Tuesday, June 30, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM. </span>
+<span class="accessibility-screen-reader"> Tuesday, June 30, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM. </span>
+<span class="accessibility-screen-reader"> Tuesday, June 30, 2026 Segment Coaching Session From 12:30 PM To 1:15 PM. Memo. TM COACHING. </span>
+<span class="accessibility-screen-reader"> Tuesday, June 30, 2026 Segment Paid Break 1 From 2:00 PM To 2:15 PM. </span>
+<span class="accessibility-screen-reader"> Tuesday, June 30, 2026 Segment Lunch From 3:30 PM To 4:00 PM. </span>
+<span class="accessibility-screen-reader"> Tuesday, June 30, 2026 Segment Paid Break 2 From 5:30 PM To 5:45 PM. </span>
+<span class="accessibility-screen-reader"> Wednesday, July 1, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM. </span>
+<span class="accessibility-screen-reader"> Wednesday, July 1, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM. </span>
+<span class="accessibility-screen-reader"> Wednesday, July 1, 2026 Segment Paid Break 1 From 1:30 PM To 1:45 PM. </span>
+<span class="accessibility-screen-reader"> Wednesday, July 1, 2026 Segment Lunch From 3:45 PM To 4:15 PM. </span>
+<span class="accessibility-screen-reader"> Wednesday, July 1, 2026 Segment Paid Break 2 From 6:45 PM To 7:00 PM. </span>
+<span class="accessibility-screen-reader"> Thursday, July 2, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM. </span>
+<span class="accessibility-screen-reader"> Thursday, July 2, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM. </span>
+<span class="accessibility-screen-reader"> Thursday, July 2, 2026 Segment Paid Break 1 From 1:30 PM To 1:45 PM. </span>
+<span class="accessibility-screen-reader"> Thursday, July 2, 2026 Segment Lunch From 3:30 PM To 4:00 PM. </span>
+<span class="accessibility-screen-reader"> Thursday, July 2, 2026 Segment Paid Break 2 From 6:45 PM To 7:00 PM. </span>
+<span class="accessibility-screen-reader"> Friday, July 3, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM. </span>
+<span class="accessibility-screen-reader"> Friday, July 3, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM. </span>
+<span class="accessibility-screen-reader"> Friday, July 3, 2026 Segment Paid Break 1 From 1:15 PM To 1:30 PM. </span>
+<span class="accessibility-screen-reader"> Friday, July 3, 2026 Segment Lunch From 3:30 PM To 4:00 PM. </span>
+<span class="accessibility-screen-reader"> Friday, July 3, 2026 Segment Paid Break 2 From 6:10 PM To 6:25 PM. </span>
 </div>
 `;
 
@@ -275,7 +260,11 @@ function testParseWorkScheduleHtml(html, subject, plainBody) {
   });
 
   if (events) {
-    logEventsByDay_(events, extractWeekStartDate_(subject, plainBody));
+    let weekStart = extractWeekStartDate_(subject, plainBody);
+    if (!weekStart) {
+      weekStart = extractWeekStartFromSchedulerHtml_(html);
+    }
+    logEventsByDay_(events, weekStart);
   }
 
   Logger.log('=== testParseWorkScheduleHtml finished (%s event(s)) ===', events ? events.length : 0);
@@ -342,10 +331,13 @@ function processScheduleMessage_(message) {
 function processScheduleContent_(subject, plainBody, htmlBody, options) {
   options = options || { testMode: false };
 
-  const weekStart = extractWeekStartDate_(subject, plainBody);
+  let weekStart = extractWeekStartDate_(subject, plainBody);
+  if (!weekStart && htmlBody) {
+    weekStart = extractWeekStartFromSchedulerHtml_(htmlBody);
+  }
   if (!weekStart) {
     Logger.log(
-      'Could not extract week start date from subject or body (expected "Week Starting DD/MM" or "Week Starting DD/MM/YYYY"). Skipping.'
+      'Could not extract week start date from subject, body, or HTML (expected "Week Starting DD/MM" or scheduler week range). Skipping.'
     );
     return null;
   }
@@ -356,17 +348,24 @@ function processScheduleContent_(subject, plainBody, htmlBody, options) {
     return null;
   }
 
-  const eventsByDay = parseImageMaps_(htmlBody);
-  const totalParsed = countParsedEvents_(eventsByDay);
+  const parseResult = parseScheduleHtml_(htmlBody, weekStart);
+  const calendarEvents = parseResult.events;
 
-  if (totalParsed === 0) {
-    Logger.log('No schedule events found in ImageMap1–ImageMap7. Calendar will not be modified.');
+  if (calendarEvents.length === 0) {
+    Logger.log(
+      'No schedule events found in HTML (%s parser). Calendar will not be modified.',
+      parseResult.format
+    );
     return null;
   }
 
-  Logger.log('Parsed %s event(s) across %s day map(s).', totalParsed, IMAGE_MAP_NAMES.length);
+  Logger.log(
+    'Parser: %s | %s raw segment(s)/title(s) → %s event(s) before filtering.',
+    parseResult.format,
+    parseResult.rawCount,
+    calendarEvents.length
+  );
 
-  const calendarEvents = buildCalendarEvents_(eventsByDay, weekStart);
   const eventsToCreate = calendarEvents.filter(function (event) {
     return !shouldIgnoreTitle_(event.summary);
   });
@@ -445,19 +444,19 @@ function getMessageHtmlBody_(message) {
   let source = 'none';
 
   const rawHtml = getRawHtmlBodyViaGmailApi_(messageId);
-  if (rawHtml && htmlContainsScheduleMaps_(rawHtml)) {
+  if (rawHtml && htmlContainsScheduleData_(rawHtml)) {
     html = rawHtml;
     source = 'Gmail API raw MIME';
   }
 
   if (!html) {
     const bodyHtml = message.getBody() || '';
-    if (htmlContainsScheduleMaps_(bodyHtml)) {
+    if (htmlContainsScheduleData_(bodyHtml)) {
       html = bodyHtml;
       source = 'GmailApp.getBody()';
     } else if (rawHtml) {
       html = rawHtml;
-      source = 'Gmail API raw MIME (no maps detected in getBody)';
+      source = 'Gmail API raw MIME (no schedule markers in getBody)';
     } else {
       html = bodyHtml;
       source = 'GmailApp.getBody()';
@@ -466,20 +465,39 @@ function getMessageHtmlBody_(message) {
 
   html = prepareHtmlForParsing_(html);
   Logger.log(
-    'HTML source: %s | length=%s | ImageMap1 present=%s',
+    'HTML source: %s | length=%s | scheduler=%s | ImageMap1=%s',
     source,
     html.length,
+    htmlContainsSchedulerSegments_(html),
     html.indexOf('ImageMap1') !== -1
   );
 
-  if (!htmlContainsScheduleMaps_(html)) {
+  if (!htmlContainsScheduleData_(html)) {
     Logger.log(
-      'WARNING: No ImageMap markers in HTML. Schedule tables may have been stripped by Gmail.'
+      'WARNING: No schedule markers in HTML. Schedule content may have been stripped by Gmail.'
     );
     Logger.log('HTML preview: %s', html.substring(0, 400).replace(/\s+/g, ' '));
   }
 
   return html;
+}
+
+/**
+ * @param {string} html
+ * @returns {boolean}
+ */
+function htmlContainsScheduleData_(html) {
+  return htmlContainsSchedulerSegments_(html) || htmlContainsScheduleMaps_(html);
+}
+
+/**
+ * @param {string} html
+ * @returns {boolean}
+ */
+function htmlContainsSchedulerSegments_(html) {
+  return (
+    /accessibility-screen-reader/i.test(html || '') && /\bSegment\b/i.test(html || '')
+  );
 }
 
 /**
@@ -609,6 +627,46 @@ function extractWeekStartDate_(subject, plainBody) {
   }
 
   return inferWeekStartDateFromDayMonth_(day, month);
+}
+
+/**
+ * Extract Monday week start from Kendo scheduler date range in HTML.
+ *
+ * @param {string} html
+ * @returns {Date|null}
+ */
+function extractWeekStartFromSchedulerHtml_(html) {
+  if (!html) {
+    return null;
+  }
+
+  const match = html.match(
+    /(Monday,\s+[A-Za-z]+\s+\d{1,2},\s+\d{4})\s+-\s+Sunday,\s+[A-Za-z]+\s+\d{1,2},\s+\d{4}/i
+  );
+  if (!match) {
+    return null;
+  }
+
+  const weekStart = parseSegmentDate_(match[1]);
+  if (weekStart) {
+    Logger.log('Week start from scheduler HTML: %s', formatDateOnly_(weekStart));
+  }
+  return weekStart;
+}
+
+/**
+ * Parse "Monday, June 29, 2026" in Europe/London.
+ *
+ * @param {string} dateStr
+ * @returns {Date|null}
+ */
+function parseSegmentDate_(dateStr) {
+  try {
+    return Utilities.parseDate(dateStr.trim(), TIMEZONE, 'EEEE, MMMM d, yyyy');
+  } catch (err) {
+    Logger.log('Could not parse segment date "%s": %s', dateStr, err);
+    return null;
+  }
 }
 
 /**
@@ -812,6 +870,227 @@ function decodeHtmlEntities_(text) {
     .replace(/\u00a0/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+/** Regex for each accessibility span segment line (non-capturing All Day branch). */
+const SEGMENT_LINE_REGEX_ =
+  /^([A-Za-z]+,\s+[A-Za-z]+\s+\d{1,2},\s+\d{4})\s+Segment\s+(.+?)\s+(?:(?:From\s+(\d{1,2}:\d{2}\s+[AP]M)\s+To\s+(\d{1,2}:\d{2}\s+[AP]M))|(?:All Day))\.?(?:\s+Memo\.\s*(.*?))?$/i;
+
+/**
+ * Route HTML to Kendo scheduler or legacy ImageMap parser.
+ *
+ * @param {string} html
+ * @param {Date} weekStart Monday 00:00 London (ImageMap path only)
+ * @returns {{format: string, rawCount: number, events: Array<{summary: string, start: Date, end: Date, location: string}>}}
+ */
+function parseScheduleHtml_(html, weekStart) {
+  html = prepareHtmlForParsing_(html);
+
+  if (htmlContainsSchedulerSegments_(html)) {
+    const lines = extractAccessibilitySegmentLines_(html);
+    const segments = lines
+      .map(function (line) {
+        return parseSegmentLine_(line);
+      })
+      .filter(function (segment) {
+        return segment !== null;
+      });
+
+    Logger.log(
+      'Kendo scheduler: %s accessibility line(s), %s parsed segment(s).',
+      lines.length,
+      segments.length
+    );
+
+    return {
+      format: 'kendo-scheduler',
+      rawCount: lines.length,
+      events: buildCalendarEventsFromSegments_(segments),
+    };
+  }
+
+  const eventsByDay = parseImageMaps_(html);
+  const totalParsed = countParsedEvents_(eventsByDay);
+
+  return {
+    format: 'imagemap',
+    rawCount: totalParsed,
+    events: buildCalendarEvents_(eventsByDay, weekStart),
+  };
+}
+
+/**
+ * Extract segment description lines from accessibility spans (and aria-label fallback).
+ *
+ * @param {string} html
+ * @returns {string[]}
+ */
+function extractAccessibilitySegmentLines_(html) {
+  const lines = [];
+  const seen = {};
+
+  try {
+    const lookbehind =
+      /(?<=<span class="accessibility-screen-reader">[| \u00a0]).+?(?=[| \u00a0]<\/span>)/gi;
+    let match;
+    while ((match = lookbehind.exec(html)) !== null) {
+      addUniqueSegmentLine_(lines, seen, decodeHtmlEntities_(match[0]));
+    }
+  } catch (err) {
+    Logger.log('Lookbehind span extraction unavailable (%s); using fallback pattern.', err);
+  }
+
+  const fallback =
+    /<span class="accessibility-screen-reader">\s*[|\u00a0]?\s*(.+?)\s*[|\u00a0]?\s*<\/span>/gi;
+  let fbMatch;
+  while ((fbMatch = fallback.exec(html)) !== null) {
+    addUniqueSegmentLine_(lines, seen, decodeHtmlEntities_(fbMatch[1]));
+  }
+
+  const ariaRegex = /aria-label="([^"]*\bSegment\b[^"]*)"/gi;
+  let ariaMatch;
+  while ((ariaMatch = ariaRegex.exec(html)) !== null) {
+    addUniqueSegmentLine_(lines, seen, decodeHtmlEntities_(ariaMatch[1]));
+  }
+
+  return lines.filter(function (line) {
+    return /\bSegment\b/i.test(line);
+  });
+}
+
+/**
+ * @param {string[]} lines
+ * @param {Object<string, boolean>} seen
+ * @param {string} line
+ */
+function addUniqueSegmentLine_(lines, seen, line) {
+  const normalized = (line || '').replace(/\s+/g, ' ').trim();
+  if (!normalized || seen[normalized]) {
+    return;
+  }
+  seen[normalized] = true;
+  lines.push(normalized);
+}
+
+/**
+ * @param {string} line
+ * @returns {{date: Date, segmentName: string, startTime: string|null, endTime: string|null, isAllDay: boolean, memo: string|null}|null}
+ */
+function parseSegmentLine_(line) {
+  const cleaned = decodeHtmlEntities_(line);
+  const match = cleaned.match(SEGMENT_LINE_REGEX_);
+  if (!match) {
+    Logger.log('Could not parse segment line: "%s"', cleaned.substring(0, 120));
+    return null;
+  }
+
+  const date = parseSegmentDate_(match[1]);
+  if (!date) {
+    return null;
+  }
+
+  return {
+    date: date,
+    segmentName: match[2].trim(),
+    startTime: match[3] ? normalizeTimeToken_(match[3]) : null,
+    endTime: match[4] ? normalizeTimeToken_(match[4]) : null,
+    isAllDay: !match[3],
+    memo: match[5] ? match[5].replace(/\.$/, '').trim() : null,
+  };
+}
+
+/**
+ * Build calendar events from parsed Kendo scheduler segments.
+ *
+ * @param {Array<{date: Date, segmentName: string, startTime: string|null, endTime: string|null, isAllDay: boolean, memo: string|null}>} segments
+ * @returns {Array<{summary: string, start: Date, end: Date, location: string}>}
+ */
+function buildCalendarEventsFromSegments_(segments) {
+  const shiftByDate = {};
+
+  segments.forEach(function (segment) {
+    if (isShiftContainerSegment_(segment.segmentName) && segment.startTime && segment.endTime) {
+      shiftByDate[formatDateOnly_(segment.date)] = {
+        startTime: segment.startTime,
+        endTime: segment.endTime,
+      };
+    }
+  });
+
+  const output = [];
+
+  segments.forEach(function (segment) {
+    if (isShiftContainerSegment_(segment.segmentName)) {
+      return;
+    }
+
+    let startTime = segment.startTime;
+    let endTime = segment.endTime;
+
+    if (segment.isAllDay) {
+      const shift = shiftByDate[formatDateOnly_(segment.date)];
+      if (!shift) {
+        Logger.log(
+          'All Day segment "%s" on %s: no Shift (container) times; skipping.',
+          segment.segmentName,
+          formatDateOnly_(segment.date)
+        );
+        return;
+      }
+      startTime = shift.startTime;
+      endTime = shift.endTime;
+    }
+
+    if (!startTime || !endTime) {
+      return;
+    }
+
+    const start = combineDateAndTimeLondon_(segment.date, startTime);
+    let end = combineDateAndTimeLondon_(segment.date, endTime);
+    if (end.getTime() <= start.getTime()) {
+      end = addDays_(end, 1);
+    }
+
+    output.push({
+      summary: normalizeSegmentTitle_(segment.segmentName, segment.memo),
+      start: start,
+      end: end,
+      location: EVENT_LOCATION,
+    });
+  });
+
+  return output;
+}
+
+/**
+ * @param {string} segmentName
+ * @returns {boolean}
+ */
+function isShiftContainerSegment_(segmentName) {
+  return /^shift\s*\(container\)$/i.test((segmentName || '').trim());
+}
+
+/**
+ * Apply Kendo segment title rules (no "Segment" prefix; Paid Break → Break, etc.).
+ *
+ * @param {string} segmentName
+ * @param {string|null} memo
+ * @returns {string}
+ */
+function normalizeSegmentTitle_(segmentName, memo) {
+  let title = (segmentName || '').trim();
+
+  if (/^paid break\s+/i.test(title)) {
+    title = title.replace(/^paid break\s+/i, 'Break ');
+  } else if (/^lunch$/i.test(title)) {
+    title = 'LUNCH BREAK';
+  } else if (/transport for london enforceme/i.test(title)) {
+    title = 'TFL EOPs';
+  } else if (/^coaching session$/i.test(title) && memo) {
+    title = 'COACH - ' + memo;
+  }
+
+  return title.trim();
 }
 
 /**
