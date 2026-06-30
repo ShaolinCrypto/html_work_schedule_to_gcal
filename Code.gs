@@ -255,20 +255,19 @@ function testParseWorkScheduleHtml(html, subject, plainBody) {
     return null;
   }
 
-  const events = processScheduleContent_(subject, plainBody, html, {
+  const result = processScheduleContent_(subject, plainBody, html, {
     testMode: true,
   });
 
-  if (events) {
-    let weekStart = extractWeekStartDate_(subject, plainBody);
-    if (!weekStart) {
-      weekStart = extractWeekStartFromSchedulerHtml_(html);
-    }
-    logEventsByDay_(events, weekStart);
+  if (result) {
+    logEventsByDay_(result.events, result.weekStart);
   }
 
-  Logger.log('=== testParseWorkScheduleHtml finished (%s event(s)) ===', events ? events.length : 0);
-  return events;
+  Logger.log(
+    '=== testParseWorkScheduleHtml finished (%s event(s)) ===',
+    result ? result.events.length : 0
+  );
+  return result ? result.events : null;
 }
 
 // ---------------------------------------------------------------------------
@@ -288,16 +287,19 @@ function processScheduleMessage_(message) {
     return;
   }
 
-  const events = processScheduleContent_(
+  const result = processScheduleContent_(
     subject,
     message.getPlainBody(),
     getMessageHtmlBody_(message),
     { testMode: false, subject: subject, message: message }
   );
 
-  if (!events) {
+  if (!result) {
     return;
   }
+
+  const events = result.events;
+  const weekStart = result.weekStart;
 
   if (DRY_RUN) {
     logWouldImportEvents_(events);
@@ -305,7 +307,6 @@ function processScheduleMessage_(message) {
     return;
   }
 
-  const weekStart = extractWeekStartDate_(subject, message.getPlainBody());
   const calendar = getOrCreateWorkRotaCalendar_();
   const weekEnd = addDays_(weekStart, 7);
   deleteExistingWeekEvents_(calendar, weekStart, weekEnd);
@@ -326,26 +327,32 @@ function processScheduleMessage_(message) {
  * @param {string} plainBody
  * @param {string} htmlBody
  * @param {{testMode: boolean, message?: GoogleAppsScript.Gmail.GmailMessage}} options
- * @returns {Array<{summary: string, start: Date, end: Date, location: string}>|null}
+ * @returns {{events: Array<{summary: string, start: Date, end: Date, location: string}>, weekStart: Date}|null}
  */
 function processScheduleContent_(subject, plainBody, htmlBody, options) {
   options = options || { testMode: false };
 
-  let weekStart = extractWeekStartDate_(subject, plainBody);
-  if (!weekStart && htmlBody) {
-    weekStart = extractWeekStartFromSchedulerHtml_(htmlBody);
-  }
-  if (!weekStart) {
-    Logger.log(
-      'Could not extract week start date from subject, body, or HTML (expected "Week Starting DD/MM" or scheduler week range). Skipping.'
-    );
-    return null;
-  }
-  Logger.log('Week start date: %s (%s)', formatDateOnly_(weekStart), DAY_NAMES[0]);
-
   if (!htmlBody || !htmlBody.trim()) {
     Logger.log('HTML body is empty. Skipping.');
     return null;
+  }
+
+  const isScheduler = htmlContainsSchedulerSegments_(htmlBody);
+  let weekStart = resolveWeekStartForSchedule_(subject, plainBody, htmlBody, null);
+
+  if (!isScheduler && !weekStart) {
+    Logger.log(
+      'Could not extract week start for legacy ImageMap HTML (expected "Week Starting DD/MM" in subject or scheduler week range in HTML). Skipping.'
+    );
+    return null;
+  }
+
+  if (weekStart) {
+    Logger.log('Week start date: %s (%s)', formatDateOnly_(weekStart), DAY_NAMES[0]);
+  } else {
+    Logger.log(
+      'No week start in subject or HTML header; will infer from parsed segment dates (Kendo scheduler).'
+    );
   }
 
   const parseResult = parseScheduleHtml_(htmlBody, weekStart);
@@ -358,6 +365,15 @@ function processScheduleContent_(subject, plainBody, htmlBody, options) {
     );
     return null;
   }
+
+  if (!weekStart) {
+    weekStart = resolveWeekStartForSchedule_(subject, plainBody, htmlBody, calendarEvents);
+  }
+  if (!weekStart) {
+    Logger.log('Could not determine week start date for calendar import. Skipping.');
+    return null;
+  }
+  Logger.log('Week start for import: %s (%s)', formatDateOnly_(weekStart), DAY_NAMES[0]);
 
   Logger.log(
     'Parser: %s | %s raw segment(s)/title(s) → %s event(s) before filtering.',
@@ -383,10 +399,10 @@ function processScheduleContent_(subject, plainBody, htmlBody, options) {
 
   if (options.testMode) {
     logWouldImportEvents_(eventsToCreate);
-    return eventsToCreate;
+    return { events: eventsToCreate, weekStart: weekStart };
   }
 
-  return eventsToCreate;
+  return { events: eventsToCreate, weekStart: weekStart };
 }
 
 /**
@@ -652,6 +668,96 @@ function extractWeekStartFromSchedulerHtml_(html) {
     Logger.log('Week start from scheduler HTML: %s', formatDateOnly_(weekStart));
   }
   return weekStart;
+}
+
+/**
+ * Resolve Monday week start for import/delete window.
+ * Order: subject/body → scheduler header in HTML → earliest parsed event date.
+ *
+ * @param {string} subject
+ * @param {string} plainBody
+ * @param {string} htmlBody
+ * @param {Array<{start: Date}>|null} parsedEvents
+ * @returns {Date|null}
+ */
+function resolveWeekStartForSchedule_(subject, plainBody, htmlBody, parsedEvents) {
+  let weekStart = extractWeekStartDate_(subject, plainBody);
+  if (weekStart) {
+    return weekStart;
+  }
+
+  if (htmlBody) {
+    weekStart = extractWeekStartFromSchedulerHtml_(htmlBody);
+    if (weekStart) {
+      return weekStart;
+    }
+  }
+
+  if (parsedEvents && parsedEvents.length > 0) {
+    weekStart = inferWeekStartFromParsedEvents_(parsedEvents);
+    if (weekStart) {
+      Logger.log(
+        'Inferred week start %s from earliest parsed event (%s).',
+        formatDateOnly_(weekStart),
+        formatDateOnly_(parsedEvents.reduce(function (earliest, event) {
+          return event.start.getTime() < earliest.start.getTime() ? event : earliest;
+        }, parsedEvents[0]).start)
+      );
+    }
+  }
+
+  return weekStart;
+}
+
+/**
+ * Monday 00:00 London for the week containing the earliest parsed event.
+ *
+ * @param {Array<{start: Date}>} events
+ * @returns {Date|null}
+ */
+function inferWeekStartFromParsedEvents_(events) {
+  if (!events || events.length === 0) {
+    return null;
+  }
+
+  let earliest = events[0].start;
+  events.forEach(function (event) {
+    if (event.start.getTime() < earliest.getTime()) {
+      earliest = event.start;
+    }
+  });
+
+  return getMondayOfWeekLondon_(earliest);
+}
+
+/**
+ * @param {Date} date any instant in Europe/London
+ * @returns {Date|null} that week's Monday at 00:00 London
+ */
+function getMondayOfWeekLondon_(date) {
+  const dayName = Utilities.formatDate(date, TIMEZONE, 'EEEE');
+  const dayIndex = DAY_NAMES.indexOf(dayName);
+  if (dayIndex < 0) {
+    return null;
+  }
+
+  const midnight = londonDateFromInstant_(date);
+  return addDays_(midnight, -dayIndex);
+}
+
+/**
+ * @param {Date} date
+ * @returns {Date} same calendar day at 00:00 Europe/London
+ */
+function londonDateFromInstant_(date) {
+  const parts = Utilities.formatDate(date, TIMEZONE, 'yyyy-MM-dd').split('-');
+  return londonDate_(
+    parseInt(parts[0], 10),
+    parseInt(parts[1], 10),
+    parseInt(parts[2], 10),
+    0,
+    0
+  );
 }
 
 /**
