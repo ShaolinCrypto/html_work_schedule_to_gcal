@@ -1,0 +1,734 @@
+<div class="content-area">
+<div id="splitter-container" class="vertical-stretch k-widget k-splitter" data-role="splitter">
+<div id="seViewScheduler" class="vertical-stretch k-pane" role="group" style="position: absolute; top: 0px; width: 1876px; height: 266px; left: 0px;">
+<div id="seScheduler" data-bind="css:{'multi-employee':SEUIHelper.isMultiEmployee},kendoScheduler: SEUIHelper.GetSchedulerOptions(), block: SEUIHelper.GetSchedulerBlockOverlayOptions()" tabindex="0" role="grid" data-role="scheduler" class="k-widget k-scheduler k-floatwrap" aria-multiselectable="true" style="height: 100%;"><div class="k-scheduler-toolbar k-toolbar" style="" aria-hidden="true"><span class="k-scheduler-navigation k-button-group"><button class="k-button k-nav-today" title="Today"><span class="k-button-text">Today</span></button><button class="k-button k-button-icon k-icon-button k-nav-prev" title="Previous" aria-label="Previous"><span class="k-icon k-i-arrow-60-left"></span></button><button class="k-button k-button-icon k-icon-button k-nav-next" title="Next" aria-label="Next"><span class="k-icon k-i-arrow-60-right"></span></button></span><a role="button" href="#" class="k-nav-current"><span class="k-icon k-i-calendar"></span><span class="k-sm-date-format" data-bind="text: formattedShortDate">6/29/2026 - 7/5/2026</span><span class="k-lg-date-format" data-bind="text: formattedDate">Monday, June 29, 2026 - Sunday, July 5, 2026</span></a><span class="k-spacer k-toolbar-spacer"></span><span class="k-scheduler-views-wrapper"><select class="k-dropdown k-views-dropdown"><option value="day">Day</option><option value="week">Week</option><option value="month">Month</option></select><span class="k-scheduler-views k-button-group"><button type="button" class="k-button k-view-day" data-name="day">Day</button><button type="button" class="k-button k-view-week" data-name="week">Week</button><button type="button" class="k-button k-view-month" data-name="month">Month</button></span></span></div><table role="presentation" class="k-scheduler-layout k-scheduler-weekview k-scrollbar-v" aria-label="Schedule Editor. 6/29/2026 - 7/5/2026. Segment View. Davison (TFL), Nick (50117380).  Week View. Use left and right arrow keys to navigate through the segments. Press Enter to select the highlighted segment and clear previous selection. Press Ctrl+Enter to add the highlighted segment to the existing selection. Press Escape to clear selection."><tbody><tr><td><div class="k-scheduler-times"><table role="grid" class="k-scheduler-table"><tbody><tr style="height: 27px;"><th>​</th></tr><tr style="height: 52px;"><th class="k-scheduler-times-all-day">All Day</th></tr></tbody></table></div></td><td><div class="k-scheduler-header k-state-default" style="padding-right: 14px;"><div class="k-scheduler-header-wrap" aria-label="General Segments"><table role="grid" class="k-scheduler-table"><tbody><tr><th colspan="1" class="">
+<div class="se-scheduler-date-header" title="Monday, June 29, 2026" id="1782687600000">
+<span employeekey="-987122408967">Monday, June 29, 2026</span>
+</div>
+</th><th colspan="1" class="k-today">
+<div class="se-scheduler-date-header" title="Tuesday, June 30, 2026" id="1782774000000">
+<span employeekey="-987122408967">Tuesday, June 30, 2026</span>
+</div>
+</th><th colspan="1" class="">
+<div class="se-scheduler-date-header" title="Wednesday, July 1, 2026" id="1782860400000">
+<span employeekey="-987122408967">Wednesday, July 1, 2026</span>
+</div>
+</th><th colspan="1" class="">
+<div class="se-scheduler-date-header" title="Thursday, July 2, 2026" id="1782946800000">
+<span employeekey="-987122408967">Thursday, July 2, 2026</span>
+</div>
+</th><th colspan="1" class="">
+<div class="se-scheduler-date-header" title="Friday, July 3, 2026" id="1783033200000">
+<span employeekey="-987122408967">Friday, July 3, 2026</span>
+</div>
+</th><th colspan="1" class="">
+<div class="se-scheduler-date-header" title="Saturday, July 4, 2026" id="1783119600000">
+<span employeekey="-987122408967">Saturday, July 4, 2026</span>
+</div>
+</th><th colspan="1" class="">
+<div class="se-scheduler-date-header" title="Sunday, July 5, 2026" id="1783206000000">
+<span employeekey="-987122408967">Sunday, July 5, 2026</span>
+</div>
+</th></tr></tbody></table><div style="position:relative"><table role="grid" class="k-scheduler-table k-scheduler-header-all-day"><tbody><tr role="row" style="height: 52px;"><td class="" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today" role="gridcell" aria-selected="false">&nbsp;</td><td class="" role="gridcell" aria-selected="false">&nbsp;</td><td class="" role="gridcell" aria-selected="false">&nbsp;</td><td class="" role="gridcell" aria-selected="false">&nbsp;</td><td class="" role="gridcell" aria-selected="false">&nbsp;</td><td class="" role="gridcell" aria-selected="false">&nbsp;</td></tr></tbody></table><div role="gridcell" aria-selected="false" data-uid="08f38d0c-fad7-462f-acf0-103bbcfc2951" style="left: 2px; width: 253px; top: 0px;" class="k-event k-event-inverse" id="08f38d0c-fad7-462f-acf0-103bbcfc2951" aria-label=" Monday, June 29, 2026 Segment Holiday All Day. Memo. Holiday day id [7305889] and hol detail id [161826] (awr ID [132714923]). "><span class="k-event-actions"></span>
+
+
+<div class="" title="HOLS (Holiday)" style="height:100%">
+<div class="k-event-template k-event-time">12:00 AM - 12:00 AM</div>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Holiday All Day. Memo. Holiday day id [7305889] and hol detail id [161826] (awr ID [132714923]). </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#c0c0c0">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+<i class="icon-file-text-alt memo-icon" title="Holiday day id [7305889] and hol detail id [161826] (awr ID [132714923])"></i>
+
+HOLS
+</span>
+(Holiday)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-resize-handle k-resize-w"></span><span class="k-resize-handle k-resize-e"></span></div></div></div></div></td></tr><tr><td><div class="k-scheduler-times" style="height: 185px;"><div class="k-current-time k-current-time-arrow-right" style="left: 0px; top: 1922.07px;"></div><table role="grid" class="k-scheduler-table" style="height: 2591px;"><tbody><tr><th class="" rowspan="1"><span>12:00 AM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>1:00 AM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>2:00 AM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>3:00 AM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>4:00 AM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>5:00 AM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>6:00 AM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>7:00 AM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>8:00 AM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>9:00 AM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>10:00 AM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>11:00 AM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>12:00 PM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>1:00 PM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>2:00 PM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>3:00 PM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>4:00 PM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>5:00 PM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>6:00 PM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>7:00 PM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>8:00 PM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>9:00 PM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>10:00 PM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr><tr><th class="" rowspan="1"><span>11:00 PM</span></th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="" rowspan="1">​</th></tr><tr><th class="k-slot-cell" rowspan="1">​</th></tr></tbody></table></div></td><td><div class="k-scheduler-content" style="height: 185px;" aria-label="Detail Segments"><div class="k-current-time" style="left: 0px; right: 0px; height: 1px; top: 1926.07px;"></div><table role="grid" class="k-scheduler-table"><tbody><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr class="k-middle-row" role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr><tr role="row"><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class="k-today k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td><td class=" k-nonwork-hour" role="gridcell" aria-selected="false">&nbsp;</td></tr></tbody></table><div role="gridcell" aria-selected="false" data-uid="d860f305-0728-434b-ada5-36ef988d9d70" style="top: 1026px; height: 1132px; width: 74.5px; left: 2px;" class="k-event k-event-inverse" id="d860f305-0728-434b-ada5-36ef988d9d70" aria-label=" Monday, June 29, 2026 Segment Transport for London Enforceme From 9:30 AM To 8:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="9:30 AM - 8:00 PM (10:30) : TFLEOPS (Transport for London Enforceme)" style="height:100%">
+<div class="k-event-template k-event-time">9:30 AM - 8:00 PM</div>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Transport for London Enforceme From 9:30 AM To 8:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:#ffffff; background-color:#0080ff">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:#ffffff; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:#ffffff;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+TFLEOPS
+</span>
+(Transport for London Enforceme)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="87f70239-e043-4e29-a951-4482aaa9e9e1" style="top: 1026px; height: 1132px; width: 74.5px; left: 78.5px;" class="k-event k-event-inverse" id="87f70239-e043-4e29-a951-4482aaa9e9e1" aria-label=" Monday, June 29, 2026 Segment Shift (container) From 9:30 AM To 8:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="9:30 AM - 8:00 PM (10:30) : SHIFT (Shift (container))" style="height:100%">
+<div class="k-event-template k-event-time">9:30 AM - 8:00 PM</div>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Shift (container) From 9:30 AM To 8:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:#ffffff; background-color:#000000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:#ffffff; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:#ffffff;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+SHIFT
+</span>
+(Shift (container))
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="64e61331-45ad-4ac7-9526-728610486c57" style="top: 1242px; height: 25px; width: 74.5px; left: 155px;" class="k-event k-event-inverse" id="64e61331-45ad-4ac7-9526-728610486c57" aria-label=" Monday, June 29, 2026 Segment Paid Break 1 From 11:30 AM To 11:45 AM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="11:30 AM - 11:45 AM (0:15) : PBRK1 (Paid Break 1)" style="height:100%">
+<div class="k-event-template k-event-time">11:30 AM - 11:45 AM</div>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Paid Break 1 From 11:30 AM To 11:45 AM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff8000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+PBRK1
+</span>
+(Paid Break 1)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="8653f8ea-7415-4d48-a8a1-23fbe9ebda17" style="top: 1458px; height: 52px; width: 74.5px; left: 155px;" class="k-event k-event-inverse" id="8653f8ea-7415-4d48-a8a1-23fbe9ebda17" aria-label=" Monday, June 29, 2026 Segment Lunch From 1:30 PM To 2:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="1:30 PM - 2:00 PM (0:30) : LUNCH (Lunch)" style="height:100%">
+<div class="k-event-template k-event-time">1:30 PM - 2:00 PM</div>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Lunch From 1:30 PM To 2:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff0000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+LUNCH
+</span>
+(Lunch)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="0204d53e-486f-476f-9351-24b61a7e195d" style="top: 1728px; height: 25px; width: 74.5px; left: 155px;" class="k-event k-event-inverse" id="0204d53e-486f-476f-9351-24b61a7e195d" aria-label=" Monday, June 29, 2026 Segment Paid Break 2 From 4:00 PM To 4:15 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="4:00 PM - 4:15 PM (0:15) : PBRK2 (Paid Break 2)" style="height:100%">
+<div class="k-event-template k-event-time">4:00 PM - 4:15 PM</div>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Paid Break 2 From 4:00 PM To 4:15 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff8000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+PBRK2
+</span>
+(Paid Break 2)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="987d51b8-a29c-4afc-9523-fef5c01b21ec" style="top: 1971px; height: 16.3333px; width: 74.5px; left: 155px;" class="k-event k-event-inverse" id="987d51b8-a29c-4afc-9523-fef5c01b21ec" aria-label=" Monday, June 29, 2026 Segment Paid Break 3 From 6:15 PM To 6:25 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="6:15 PM - 6:25 PM (0:10) : PBRK3 (Paid Break 3)" style="height:100%">
+<div class="k-event-template k-event-time">6:15 PM - 6:25 PM</div>
+<span class="accessibility-screen-reader"> Monday, June 29, 2026 Segment Paid Break 3 From 6:15 PM To 6:25 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff8000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+PBRK3
+</span>
+(Paid Break 3)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="98490247-54cb-4f34-b369-1fbc6a0e2604" style="top: 1296px; height: 862px; width: 74.2px; left: 257px;" class="k-event k-event-inverse" id="98490247-54cb-4f34-b369-1fbc6a0e2604" aria-label=" Tuesday, June 30, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="12:00 PM - 8:00 PM (8:00) : TFLEOPS (Transport for London Enforceme)" style="height:100%">
+<div class="k-event-template k-event-time">12:00 PM - 8:00 PM</div>
+<span class="accessibility-screen-reader"> Tuesday, June 30, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:#ffffff; background-color:#0080ff">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:#ffffff; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:#ffffff;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+TFLEOPS
+</span>
+(Transport for London Enforceme)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="2504503d-83a7-4a24-a32e-d4bdf5d0e210" style="top: 1296px; height: 862px; width: 74.2px; left: 333.2px;" class="k-event k-event-inverse" id="2504503d-83a7-4a24-a32e-d4bdf5d0e210" aria-label=" Tuesday, June 30, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="12:00 PM - 8:00 PM (8:00) : SHIFT (Shift (container))" style="height:100%">
+<div class="k-event-template k-event-time">12:00 PM - 8:00 PM</div>
+<span class="accessibility-screen-reader"> Tuesday, June 30, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:#ffffff; background-color:#000000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:#ffffff; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:#ffffff;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+SHIFT
+</span>
+(Shift (container))
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="862b8464-ab32-4576-9c54-e2a11c08e456" style="top: 1350px; height: 79px; width: 74.2px; left: 409.4px;" class="k-event k-event-inverse" id="862b8464-ab32-4576-9c54-e2a11c08e456" aria-label=" Tuesday, June 30, 2026 Segment Coaching Session From 12:30 PM To 1:15 PM. Memo. TM COACHING. "><span class="k-event-actions"></span>
+
+
+<div class="" title="12:30 PM - 1:15 PM (0:45) : COACH (Coaching Session)" style="height:100%">
+<div class="k-event-template k-event-time">12:30 PM - 1:15 PM</div>
+<span class="accessibility-screen-reader"> Tuesday, June 30, 2026 Segment Coaching Session From 12:30 PM To 1:15 PM. Memo. TM COACHING. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:#ffffff; background-color:#008000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:#ffffff; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:#ffffff;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+<i class="icon-file-text-alt memo-icon" title="TM COACHING"></i>
+
+COACH
+</span>
+(Coaching Session)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="e4af365a-bf20-4971-9fc5-a48b1868bfa0" style="top: 1512px; height: 25px; width: 74.2px; left: 409.4px;" class="k-event k-event-inverse" id="e4af365a-bf20-4971-9fc5-a48b1868bfa0" aria-label=" Tuesday, June 30, 2026 Segment Paid Break 1 From 2:00 PM To 2:15 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="2:00 PM - 2:15 PM (0:15) : PBRK1 (Paid Break 1)" style="height:100%">
+<div class="k-event-template k-event-time">2:00 PM - 2:15 PM</div>
+<span class="accessibility-screen-reader"> Tuesday, June 30, 2026 Segment Paid Break 1 From 2:00 PM To 2:15 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff8000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+PBRK1
+</span>
+(Paid Break 1)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="d9a6aa00-d834-4b50-a3b1-57baee56bfac" style="top: 1674px; height: 52px; width: 74.2px; left: 409.4px;" class="k-event k-event-inverse" id="d9a6aa00-d834-4b50-a3b1-57baee56bfac" aria-label=" Tuesday, June 30, 2026 Segment Lunch From 3:30 PM To 4:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="3:30 PM - 4:00 PM (0:30) : LUNCH (Lunch)" style="height:100%">
+<div class="k-event-template k-event-time">3:30 PM - 4:00 PM</div>
+<span class="accessibility-screen-reader"> Tuesday, June 30, 2026 Segment Lunch From 3:30 PM To 4:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff0000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+LUNCH
+</span>
+(Lunch)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="2118b722-269e-41ec-a487-4fd2300b9c94" style="top: 1890px; height: 25px; width: 74.2px; left: 409.4px;" class="k-event k-event-inverse" id="2118b722-269e-41ec-a487-4fd2300b9c94" aria-label=" Tuesday, June 30, 2026 Segment Paid Break 2 From 5:30 PM To 5:45 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="5:30 PM - 5:45 PM (0:15) : PBRK2 (Paid Break 2)" style="height:100%">
+<div class="k-event-template k-event-time">5:30 PM - 5:45 PM</div>
+<span class="accessibility-screen-reader"> Tuesday, June 30, 2026 Segment Paid Break 2 From 5:30 PM To 5:45 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff8000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+PBRK2
+</span>
+(Paid Break 2)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="78a0ccc5-3c0e-43ec-96f7-c943005cb1be" style="top: 1296px; height: 862px; width: 74.2px; left: 512px;" class="k-event k-event-inverse" id="78a0ccc5-3c0e-43ec-96f7-c943005cb1be" aria-label=" Wednesday, July 1, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="12:00 PM - 8:00 PM (8:00) : TFLEOPS (Transport for London Enforceme)" style="height:100%">
+<div class="k-event-template k-event-time">12:00 PM - 8:00 PM</div>
+<span class="accessibility-screen-reader"> Wednesday, July 1, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:#ffffff; background-color:#0080ff">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:#ffffff; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:#ffffff;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+TFLEOPS
+</span>
+(Transport for London Enforceme)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="1395c4e0-20ef-4865-9cdb-622f3a7d71da" style="top: 1296px; height: 862px; width: 74.2px; left: 588.2px;" class="k-event k-event-inverse" id="1395c4e0-20ef-4865-9cdb-622f3a7d71da" aria-label=" Wednesday, July 1, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="12:00 PM - 8:00 PM (8:00) : SHIFT (Shift (container))" style="height:100%">
+<div class="k-event-template k-event-time">12:00 PM - 8:00 PM</div>
+<span class="accessibility-screen-reader"> Wednesday, July 1, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:#ffffff; background-color:#000000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:#ffffff; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:#ffffff;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+SHIFT
+</span>
+(Shift (container))
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="bf3ee4f0-be6d-4572-8ffe-d0326ad85141" style="top: 1458px; height: 25px; width: 74.2px; left: 664.4px;" class="k-event k-event-inverse" id="bf3ee4f0-be6d-4572-8ffe-d0326ad85141" aria-label=" Wednesday, July 1, 2026 Segment Paid Break 1 From 1:30 PM To 1:45 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="1:30 PM - 1:45 PM (0:15) : PBRK1 (Paid Break 1)" style="height:100%">
+<div class="k-event-template k-event-time">1:30 PM - 1:45 PM</div>
+<span class="accessibility-screen-reader"> Wednesday, July 1, 2026 Segment Paid Break 1 From 1:30 PM To 1:45 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff8000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+PBRK1
+</span>
+(Paid Break 1)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="22f7963a-6fbc-48c9-9b94-262fe1131d7d" style="top: 1701px; height: 52px; width: 74.2px; left: 664.4px;" class="k-event k-event-inverse" id="22f7963a-6fbc-48c9-9b94-262fe1131d7d" aria-label=" Wednesday, July 1, 2026 Segment Lunch From 3:45 PM To 4:15 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="3:45 PM - 4:15 PM (0:30) : LUNCH (Lunch)" style="height:100%">
+<div class="k-event-template k-event-time">3:45 PM - 4:15 PM</div>
+<span class="accessibility-screen-reader"> Wednesday, July 1, 2026 Segment Lunch From 3:45 PM To 4:15 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff0000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+LUNCH
+</span>
+(Lunch)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="251a1eb8-ccc2-4b4a-9139-6c6777aa53d9" style="top: 2025px; height: 25px; width: 74.2px; left: 664.4px;" class="k-event k-event-inverse" id="251a1eb8-ccc2-4b4a-9139-6c6777aa53d9" aria-label=" Wednesday, July 1, 2026 Segment Paid Break 2 From 6:45 PM To 7:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="6:45 PM - 7:00 PM (0:15) : PBRK2 (Paid Break 2)" style="height:100%">
+<div class="k-event-template k-event-time">6:45 PM - 7:00 PM</div>
+<span class="accessibility-screen-reader"> Wednesday, July 1, 2026 Segment Paid Break 2 From 6:45 PM To 7:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff8000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+PBRK2
+</span>
+(Paid Break 2)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="83e5df09-02d3-47db-8647-b0341e793c4c" style="top: 1296px; height: 862px; width: 74.2px; left: 767px;" class="k-event k-event-inverse" id="83e5df09-02d3-47db-8647-b0341e793c4c" aria-label=" Thursday, July 2, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="12:00 PM - 8:00 PM (8:00) : TFLEOPS (Transport for London Enforceme)" style="height:100%">
+<div class="k-event-template k-event-time">12:00 PM - 8:00 PM</div>
+<span class="accessibility-screen-reader"> Thursday, July 2, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:#ffffff; background-color:#0080ff">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:#ffffff; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:#ffffff;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+TFLEOPS
+</span>
+(Transport for London Enforceme)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="1132fd0a-73a0-4f0e-88a5-048010daeca1" style="top: 1296px; height: 862px; width: 74.2px; left: 843.2px;" class="k-event k-event-inverse" id="1132fd0a-73a0-4f0e-88a5-048010daeca1" aria-label=" Thursday, July 2, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="12:00 PM - 8:00 PM (8:00) : SHIFT (Shift (container))" style="height:100%">
+<div class="k-event-template k-event-time">12:00 PM - 8:00 PM</div>
+<span class="accessibility-screen-reader"> Thursday, July 2, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:#ffffff; background-color:#000000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:#ffffff; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:#ffffff;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+SHIFT
+</span>
+(Shift (container))
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="28e11e3f-315d-4193-9689-63a91737b589" style="top: 1458px; height: 25px; width: 74.2px; left: 919.4px;" class="k-event k-event-inverse" id="28e11e3f-315d-4193-9689-63a91737b589" aria-label=" Thursday, July 2, 2026 Segment Paid Break 1 From 1:30 PM To 1:45 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="1:30 PM - 1:45 PM (0:15) : PBRK1 (Paid Break 1)" style="height:100%">
+<div class="k-event-template k-event-time">1:30 PM - 1:45 PM</div>
+<span class="accessibility-screen-reader"> Thursday, July 2, 2026 Segment Paid Break 1 From 1:30 PM To 1:45 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff8000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+PBRK1
+</span>
+(Paid Break 1)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="b42f14b3-728c-4c9f-8a89-5f542829f777" style="top: 1674px; height: 52px; width: 74.2px; left: 919.4px;" class="k-event k-event-inverse" id="b42f14b3-728c-4c9f-8a89-5f542829f777" aria-label=" Thursday, July 2, 2026 Segment Lunch From 3:30 PM To 4:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="3:30 PM - 4:00 PM (0:30) : LUNCH (Lunch)" style="height:100%">
+<div class="k-event-template k-event-time">3:30 PM - 4:00 PM</div>
+<span class="accessibility-screen-reader"> Thursday, July 2, 2026 Segment Lunch From 3:30 PM To 4:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff0000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+LUNCH
+</span>
+(Lunch)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="85d8fa9e-6465-4589-a80f-adc5622b1791" style="top: 2025px; height: 25px; width: 74.2px; left: 919.4px;" class="k-event k-event-inverse" id="85d8fa9e-6465-4589-a80f-adc5622b1791" aria-label=" Thursday, July 2, 2026 Segment Paid Break 2 From 6:45 PM To 7:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="6:45 PM - 7:00 PM (0:15) : PBRK2 (Paid Break 2)" style="height:100%">
+<div class="k-event-template k-event-time">6:45 PM - 7:00 PM</div>
+<span class="accessibility-screen-reader"> Thursday, July 2, 2026 Segment Paid Break 2 From 6:45 PM To 7:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff8000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+PBRK2
+</span>
+(Paid Break 2)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="7ded658b-66ae-4406-9890-71969bb17f8d" style="top: 1296px; height: 862px; width: 74.2px; left: 1022px;" class="k-event k-event-inverse" id="7ded658b-66ae-4406-9890-71969bb17f8d" aria-label=" Friday, July 3, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="12:00 PM - 8:00 PM (8:00) : TFLEOPS (Transport for London Enforceme)" style="height:100%">
+<div class="k-event-template k-event-time">12:00 PM - 8:00 PM</div>
+<span class="accessibility-screen-reader"> Friday, July 3, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:#ffffff; background-color:#0080ff">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:#ffffff; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:#ffffff;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+TFLEOPS
+</span>
+(Transport for London Enforceme)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="814b175d-5f23-4ed9-a6fa-cddc4206ddd1" style="top: 1296px; height: 862px; width: 74.2px; left: 1098.2px;" class="k-event k-event-inverse" id="814b175d-5f23-4ed9-a6fa-cddc4206ddd1" aria-label=" Friday, July 3, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="12:00 PM - 8:00 PM (8:00) : SHIFT (Shift (container))" style="height:100%">
+<div class="k-event-template k-event-time">12:00 PM - 8:00 PM</div>
+<span class="accessibility-screen-reader"> Friday, July 3, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:#ffffff; background-color:#000000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:#ffffff; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:#ffffff;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+SHIFT
+</span>
+(Shift (container))
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="fd66ea52-68c0-4846-8023-bd8468495fae" style="top: 1431px; height: 25px; width: 74.2px; left: 1174.4px;" class="k-event k-event-inverse" id="fd66ea52-68c0-4846-8023-bd8468495fae" aria-label=" Friday, July 3, 2026 Segment Paid Break 1 From 1:15 PM To 1:30 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="1:15 PM - 1:30 PM (0:15) : PBRK1 (Paid Break 1)" style="height:100%">
+<div class="k-event-template k-event-time">1:15 PM - 1:30 PM</div>
+<span class="accessibility-screen-reader"> Friday, July 3, 2026 Segment Paid Break 1 From 1:15 PM To 1:30 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff8000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+PBRK1
+</span>
+(Paid Break 1)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="d8f25abf-f25a-459c-98b4-b10134c11b34" style="top: 1674px; height: 52px; width: 74.2px; left: 1174.4px;" class="k-event k-event-inverse" id="d8f25abf-f25a-459c-98b4-b10134c11b34" aria-label=" Friday, July 3, 2026 Segment Lunch From 3:30 PM To 4:00 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="3:30 PM - 4:00 PM (0:30) : LUNCH (Lunch)" style="height:100%">
+<div class="k-event-template k-event-time">3:30 PM - 4:00 PM</div>
+<span class="accessibility-screen-reader"> Friday, July 3, 2026 Segment Lunch From 3:30 PM To 4:00 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff0000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+LUNCH
+</span>
+(Lunch)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div><div role="gridcell" aria-selected="false" data-uid="ff277161-a769-4d03-b1ec-7090a464a025" style="top: 1961.33px; height: 26px; width: 74.2px; left: 1174.4px;" class="k-event k-event-inverse" id="ff277161-a769-4d03-b1ec-7090a464a025" aria-label=" Friday, July 3, 2026 Segment Paid Break 2 From 6:10 PM To 6:25 PM. "><span class="k-event-actions"></span>
+
+
+<div class="" title="6:10 PM - 6:25 PM (0:15) : PBRK2 (Paid Break 2)" style="height:100%">
+<div class="k-event-template k-event-time">6:10 PM - 6:25 PM</div>
+<span class="accessibility-screen-reader"> Friday, July 3, 2026 Segment Paid Break 2 From 6:10 PM To 6:25 PM. </span>
+<div class="seKendoDivEventTemplateDIV" style="color:windowtext; background-color:#ff8000">
+<div class="seKendoDivEventTemplateDIV_Pending" style="color:windowtext; ; border-right-style: hidden; border-right-color: rgb(255, 255, 255); border-right-width: 1px;"></div>
+<div class="k-event-template seKendoDivEventTemplateDIV_Segment" style="color:windowtext;font-weight:400;">
+
+<div class="scheduler-event-body" aria-hidden="true">
+<span class="scheduler-event-code">
+
+
+PBRK2
+</span>
+(Paid Break 2)
+</div>
+</div>
+</div>
+</div>
+
+
+
+<span class="k-event-actions"></span><span class="k-event-top-actions"></span><span class="k-event-bottom-actions"></span><span class="k-resize-handle k-resize-n"></span><span class="k-resize-handle k-resize-s"></span></div></div></td></tr></tbody></table><div class="k-scheduler-footer k-toolbar" style=""><button type="button" class="k-button k-scheduler-fullday"><span class="k-icon k-i-clock"></span><span class="k-button-text">Show business hours</span></button></div></div>
+</div><div tabindex="0" class="k-splitbar k-state-default k-splitbar-horizontal" data-marker="c92b3e95" role="separator" aria-expanded="false" style="height: 266px; left: 1876px;" aria-valuenow="0" aria-valuetext="Separator position:  0" aria-orientation="vertical" aria-label="Use Alt + &lt; to expand, Alt + &gt; to collapse. Use Alt + Left Arrow or Alt + Right Arrow to adjust position, then Alt + Enter to confirm position." aria-valuemin="0" aria-valuemax="100"><div class="k-icon k-resize-handle k-i-vbar"></div><div class="k-icon k-expand-next k-i-arrow-60-left"></div></div>
+<div id="seSidePanel" data-bind="visible:HasSavePermission, template: 'sidePanelTemplate'" class="vertical-stretch k-pane k-state-collapsed" style="position: absolute; top: 0px; width: 0px; height: 266px; left: 1888px; overflow: hidden;" role="group">
+<div class="k-tabstrip-wrapper"><div id="sidePanelTabStrip" class="vertical-stretch k-widget k-header k-tabstrip k-floatwrap k-tabstrip-top k-tabstrip-scrollable" aria-hidden="true" temp-defocus="1" data-role="tabstrip" tabindex="-1" role="tablist" aria-activedescendant="tabCart">
+<ul class="k-tabstrip-items k-reset" style="margin-left: 36.1406px; margin-right: 39.1406px;"><li id="tabCart" aria-hidden="true" tabindex="-1" temp-defocus="1" class="k-item k-state-default k-first k-last k-tab-on-top k-state-active" role="tab" aria-controls="cartContainer" aria-selected="true" style=""><span class="k-loading k-complete"></span>
+<span unselectable="on" class="k-link"><span data-bind="i18n: { textTitle: 'wfm.ScheduleEditor:Changes' }" title="Changes">Changes</span><span class="tab-changes-count" data-bind="text: SegmentCart.PendingChangesCount">0</span></span>
+</li></ul>
+
+<div id="cartContainer" data-bind="template: 'cartContainerTemplate'" tabindex="-1" temp-defocus="1" class="k-content k-state-active" role="tabpanel" aria-expanded="true" style="height: calc(100% - 32px); overflow: auto; opacity: 1; display: block;">
+<div data-bind="visible: !HasPendingChanges()" id="cart-no-data" class="cart-no-data" aria-hidden="true" tabindex="-1" temp-defocus="1">
+<i class="glyph-cart" data-bind="visible: !HasPendingChanges(), i18n: {attr: { title: 'wfm.ScheduleEditor:CartNoItems' } }" title="No Items in Cart">
+<span class="accessibility-screen-reader" data-bind="i18n: { text: 'wfm.ScheduleEditor:CartNoItems' }">No Items in Cart</span>
+</i>
+</div>
+
+<div class="cart-data" aria-live="polite" aria-hidden="true" tabindex="-1" temp-defocus="1">
+<div class="cart-list" data-bind="visible: HasPendingChanges, foreach:SegmentCart.CartRows" style="display: none;" aria-hidden="true" tabindex="-1" temp-defocus="1"></div>
+</div>
+
+<div class="cart-footer" aria-hidden="true" tabindex="-1" temp-defocus="1">
+<button class="button-primary" data-bind="enable:HasPendingChanges, click: function() {SEUIHelper.CancelSegmentChanges();}, i18n: {textTitle: 'wfm.ScheduleEditor:CancelAll'}" disabled="" title="Cancel All" aria-hidden="true" tabindex="-1" temp-defocus="1">Cancel All</button>
+</div>
+</div>
+<span class="k-button k-button-icon k-flat k-tabstrip-prev" unselectable="on" style="display: none;"><span class="k-icon k-i-arrow-60-left"></span></span><span class="k-button k-button-icon k-flat k-tabstrip-next" unselectable="on"><span class="k-icon k-i-arrow-60-right"></span></span></div></div>
+</div>
+</div>
+</div>
