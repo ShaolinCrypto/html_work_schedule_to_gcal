@@ -1,0 +1,185 @@
+New Regex: ``(?<=<span class="accessibility-screen-reader">[| ]).+(?=[| ]<\/span>)``
+
+Matches: ``
+Monday, June 29, 2026 Segment Holiday All Day. Memo. Holiday day id [7305889] and hol detail id [161826] (awr ID [132714923]).
+Monday, June 29, 2026 Segment Transport for London Enforceme From 9:30 AM To 8:00 PM.
+Monday, June 29, 2026 Segment Shift (container) From 9:30 AM To 8:00 PM.
+Monday, June 29, 2026 Segment Paid Break 1 From 11:30 AM To 11:45 AM.
+Monday, June 29, 2026 Segment Lunch From 1:30 PM To 2:00 PM.
+Monday, June 29, 2026 Segment Paid Break 2 From 4:00 PM To 4:15 PM.
+Monday, June 29, 2026 Segment Paid Break 3 From 6:15 PM To 6:25 PM.
+Tuesday, June 30, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM.
+Tuesday, June 30, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM.
+Tuesday, June 30, 2026 Segment Coaching Session From 12:30 PM To 1:15 PM. Memo. TM COACHING.
+Tuesday, June 30, 2026 Segment Paid Break 1 From 2:00 PM To 2:15 PM.
+Tuesday, June 30, 2026 Segment Lunch From 3:30 PM To 4:00 PM.
+Tuesday, June 30, 2026 Segment Paid Break 2 From 5:30 PM To 5:45 PM.
+Wednesday, July 1, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM.
+Wednesday, July 1, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM.
+Wednesday, July 1, 2026 Segment Paid Break 1 From 1:30 PM To 1:45 PM.
+Wednesday, July 1, 2026 Segment Lunch From 3:45 PM To 4:15 PM.
+Wednesday, July 1, 2026 Segment Paid Break 2 From 6:45 PM To 7:00 PM.
+Thursday, July 2, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM.
+Thursday, July 2, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM.
+Thursday, July 2, 2026 Segment Paid Break 1 From 1:30 PM To 1:45 PM.
+Thursday, July 2, 2026 Segment Lunch From 3:30 PM To 4:00 PM.
+Thursday, July 2, 2026 Segment Paid Break 2 From 6:45 PM To 7:00 PM.
+Friday, July 3, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM.
+Friday, July 3, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM.
+Friday, July 3, 2026 Segment Paid Break 1 From 1:15 PM To 1:30 PM.
+Friday, July 3, 2026 Segment Lunch From 3:30 PM To 4:00 PM.
+Friday, July 3, 2026 Segment Paid Break 2 From 6:10 PM To 6:25 PM.
+``
+
+Second Rule:
+``
+^([A-Za-z]+,\s+[A-Za-z]+\s+\d{1,2},\s+\d{4})\s+Segment\s+(.+?)\s+(?:(?:From\s+(\d{1,2}:\d{2}\s+[AP]M)\s+To\s+(\d{1,2}:\d{2}\s+[AP]M))|(All Day))\.?(?:\s+Memo\.\s*(.*?))?$
+``
+Matches:
+
+Monday, June 29, 2026 Segment Holiday All Day. Memo. Holiday day id [7305889] and hol detail id [161826] (awr ID [132714923]).
+Monday, June 29, 2026
+Holiday
+All Day
+Holiday day id [7305889] and hol detail id [161826] (awr ID [132714923]).
+Monday, June 29, 2026 Segment Transport for London Enforceme From 9:30 AM To 8:00 PM.
+Monday, June 29, 2026
+Transport for London Enforceme
+9:30 AM
+8:00 PM
+Monday, June 29, 2026 Segment Shift (container) From 9:30 AM To 8:00 PM.
+Monday, June 29, 2026
+Shift (container)
+9:30 AM
+8:00 PM
+Monday, June 29, 2026 Segment Paid Break 1 From 11:30 AM To 11:45 AM.
+Monday, June 29, 2026
+Paid Break 1
+11:30 AM
+11:45 AM
+Monday, June 29, 2026 Segment Lunch From 1:30 PM To 2:00 PM.
+Monday, June 29, 2026
+Lunch
+1:30 PM
+2:00 PM
+Monday, June 29, 2026 Segment Paid Break 2 From 4:00 PM To 4:15 PM.
+Monday, June 29, 2026
+Paid Break 2
+4:00 PM
+4:15 PM
+Monday, June 29, 2026 Segment Paid Break 3 From 6:15 PM To 6:25 PM.
+Monday, June 29, 2026
+Paid Break 3
+6:15 PM
+6:25 PM
+Tuesday, June 30, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM.
+Tuesday, June 30, 2026
+Transport for London Enforceme
+12:00 PM
+8:00 PM
+Tuesday, June 30, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM.
+Tuesday, June 30, 2026
+Shift (container)
+12:00 PM
+8:00 PM
+Tuesday, June 30, 2026 Segment Coaching Session From 12:30 PM To 1:15 PM. Memo. TM COACHING.
+Tuesday, June 30, 2026
+Coaching Session
+12:30 PM
+1:15 PM
+TM COACHING.
+Tuesday, June 30, 2026 Segment Paid Break 1 From 2:00 PM To 2:15 PM.
+Tuesday, June 30, 2026
+Paid Break 1
+2:00 PM
+2:15 PM
+Tuesday, June 30, 2026 Segment Lunch From 3:30 PM To 4:00 PM.
+Tuesday, June 30, 2026
+Lunch
+3:30 PM
+4:00 PM
+Tuesday, June 30, 2026 Segment Paid Break 2 From 5:30 PM To 5:45 PM.
+Tuesday, June 30, 2026
+Paid Break 2
+5:30 PM
+5:45 PM
+Wednesday, July 1, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM.
+Wednesday, July 1, 2026
+Transport for London Enforceme
+12:00 PM
+8:00 PM
+Wednesday, July 1, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM.
+Wednesday, July 1, 2026
+Shift (container)
+12:00 PM
+8:00 PM
+Wednesday, July 1, 2026 Segment Paid Break 1 From 1:30 PM To 1:45 PM.
+Wednesday, July 1, 2026
+Paid Break 1
+1:30 PM
+1:45 PM
+Wednesday, July 1, 2026 Segment Lunch From 3:45 PM To 4:15 PM.
+Wednesday, July 1, 2026
+Lunch
+3:45 PM
+4:15 PM
+Wednesday, July 1, 2026 Segment Paid Break 2 From 6:45 PM To 7:00 PM.
+Wednesday, July 1, 2026
+Paid Break 2
+6:45 PM
+7:00 PM
+Thursday, July 2, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM.
+Thursday, July 2, 2026
+Transport for London Enforceme
+12:00 PM
+8:00 PM
+Thursday, July 2, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM.
+Thursday, July 2, 2026
+Shift (container)
+12:00 PM
+8:00 PM
+Thursday, July 2, 2026 Segment Paid Break 1 From 1:30 PM To 1:45 PM.
+Thursday, July 2, 2026
+Paid Break 1
+1:30 PM
+1:45 PM
+Thursday, July 2, 2026 Segment Lunch From 3:30 PM To 4:00 PM.
+Thursday, July 2, 2026
+Lunch
+3:30 PM
+4:00 PM
+Thursday, July 2, 2026 Segment Paid Break 2 From 6:45 PM To 7:00 PM.
+Thursday, July 2, 2026
+Paid Break 2
+6:45 PM
+7:00 PM
+Friday, July 3, 2026 Segment Transport for London Enforceme From 12:00 PM To 8:00 PM.
+Friday, July 3, 2026
+Transport for London Enforceme
+12:00 PM
+8:00 PM
+Friday, July 3, 2026 Segment Shift (container) From 12:00 PM To 8:00 PM.
+Friday, July 3, 2026
+Shift (container)
+12:00 PM
+8:00 PM
+Friday, July 3, 2026 Segment Paid Break 1 From 1:15 PM To 1:30 PM.
+Friday, July 3, 2026
+Paid Break 1
+1:15 PM
+1:30 PM
+Friday, July 3, 2026 Segment Lunch From 3:30 PM To 4:00 PM.
+Friday, July 3, 2026
+Lunch
+3:30 PM
+4:00 PM
+Friday, July 3, 2026 Segment Paid Break 2 From 6:10 PM To 6:25 PM.
+Friday, July 3, 2026
+Paid Break 2
+6:10 PM
+6:25 PM
+``
+
+Where match contains "All Day" instead of from and two times, map to the From and To times for the corresponding "Segment Shift (container)" entry for that date.
+Where "Transport for London Enforceme" and "Segment Shift (container)" matches have identical date and "From" and "To" times, treat as duplicate entries and only include once, Labe the event as "TFL EOPs"
+Do not include "Segment" in event names, and rename "Paid Break" to "Break" (EG: Break 1)
